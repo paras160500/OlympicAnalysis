@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Professional CSS with animations
+# Professional CSS with animations and colorful labels
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
@@ -24,10 +24,22 @@ st.markdown("""
     .main {
         font-family: 'Roboto', sans-serif;
         background: #f5f7fa;
+        color: #3498db;
     }
     
     .stApp {
         background: #f5f7fa;
+        color: #3498db;
+    }
+    
+    /* Make all Streamlit text blue */
+    .stMarkdown, .stText, p, span, div, label {
+        color: #3498db !important;
+    }
+    
+    /* Streamlit specific elements */
+    .stSelectbox label, .stButton label, .stDataFrame, .stTable {
+        color: #3498db !important;
     }
     
     /* Navigation Bar */
@@ -116,6 +128,7 @@ st.markdown("""
         font-size: 3.5rem;
         font-weight: 700;
         margin: 0 0 20px 0;
+        color: white !important;
         animation: fadeInUp 1s ease-out;
     }
     
@@ -123,6 +136,7 @@ st.markdown("""
         font-size: 1.3rem;
         margin: 0;
         opacity: 0.9;
+        color: white !important;
         animation: fadeInUp 1s ease-out 0.3s both;
     }
     
@@ -141,7 +155,7 @@ st.markdown("""
     .counter {
         font-size: 2.5rem;
         font-weight: 700;
-        color: #2c3e50;
+        color: #3498db;
         display: block;
         animation: countUp 1.5s ease-out;
     }
@@ -226,18 +240,17 @@ st.markdown("""
     }
     
     .stat-label {
-        color: #64748b;
+        color: #3498db;
         font-size: 1rem;
         font-weight: 500;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
     
-    /* Section Headers */
     .section-title {
         font-size: 2.2rem;
         font-weight: 700;
-        color: #2c3e50;
+        color: #3498db;
         margin: 50px 0 30px 0;
         text-align: center;
         position: relative;
@@ -252,7 +265,7 @@ st.markdown("""
         transform: translateX(-50%);
         width: 80px;
         height: 3px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
+        background: #3498db;
         border-radius: 2px;
     }
     
@@ -292,7 +305,7 @@ st.markdown("""
     .chart-title {
         font-size: 1.4rem;
         font-weight: 600;
-        color: #2c3e50;
+        color: #3498db;
         margin-bottom: 20px;
         display: flex;
         align-items: center;
@@ -328,7 +341,7 @@ st.markdown("""
     .filter-title {
         font-size: 1.2rem;
         font-weight: 600;
-        color: #2c3e50;
+        color: #3498db;
         margin-bottom: 15px;
     }
     
@@ -373,6 +386,8 @@ st.markdown("""
         50% { opacity: 1; }
         100% { opacity: 0.6; }
     }
+    
+    /* Remove dark mode color overrides */
     
     /* Remove default streamlit elements */
     #MainMenu {visibility: hidden;}
@@ -430,7 +445,7 @@ elif athlete_btn:
 if st.session_state.current_page == 'medal_tally':
     st.markdown('<h2 class="section-title">🏆 Olympic Medal Tally</h2>', unsafe_allow_html=True)
     
-    st.markdown('<div class="filter-section">', unsafe_allow_html=True)
+    # st.markdown('<div class="filter-section">', unsafe_allow_html=True)
     st.markdown('<div class="filter-title">📋 Filter Options</div>', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
@@ -511,6 +526,9 @@ elif st.session_state.current_page == 'overall':
 
     # Charts
     st.markdown('<h3 class="section-title">📈 Growth Trends</h3>', unsafe_allow_html=True)
+    
+    # Add some spacing
+    st.markdown('<br>', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
